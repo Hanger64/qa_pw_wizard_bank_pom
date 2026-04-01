@@ -4,8 +4,8 @@ import { AddCustomerPage } from '../../../src/pages/manager/AddCustomerPage';
 import { OpenAccountPage } from '../../../src/pages/manager/OpenAccountPage';
 import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
 
-const firstName = 'Dick';
-const lastName = 'Dickenson';
+const firstName = faker.person.firstName();
+const lastName = faker.person.lastName();
 const fullName = firstName + ' ' + lastName;
 
 
@@ -33,7 +33,7 @@ test.beforeEach(async ({ page }) => {
   await accountPage.reload();
 });
 
-test('Assert manager can add new customer', async ({ page }) => {
+test('Assert manager can open an account for a new customer', async ({ page }) => {
   /* 
   Test:
   1. Click [Open Account].

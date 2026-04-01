@@ -1,6 +1,3 @@
-import { th } from '@faker-js/faker';
-import { expect } from '@playwright/test';
-
 export class AddCustomerPage {
   constructor(page) {
     this.page = page;
