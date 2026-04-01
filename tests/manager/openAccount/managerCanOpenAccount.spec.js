@@ -4,6 +4,10 @@ import { AddCustomerPage } from '../../../src/pages/manager/AddCustomerPage';
 import { OpenAccountPage } from '../../../src/pages/manager/OpenAccountPage';
 import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
 
+const firstName = 'Dick';
+const lastName = 'Dickenson';
+const fullName = firstName + ' ' + lastName;
+
 
 test.beforeEach(async ({ page }) => {
   /* 
@@ -20,8 +24,7 @@ test.beforeEach(async ({ page }) => {
  
   await accountPage.open();
  
-  const firstName = 'Dick';
-  const lastName = 'Dickenson';
+  
   const postCode = faker.location.zipCode(); 
   await accountPage.fillFName(firstName);
   await accountPage.fillLName(lastName);
@@ -46,16 +49,16 @@ test('Assert manager can add new customer', async ({ page }) => {
     Use the ".last()" locator to get the last row.
   */
   const accountPage = new AddCustomerPage(page);
-  const oenAccountPage = new OpenAccountPage(page);
+  const openAccountPage = new OpenAccountPage(page);
   const customersListPage = new CustomersListPage(page);
 
   await accountPage.open();
   await accountPage.clickOpenAcc();
-  await oenAccountPage.selectCustomer('Dick Dickenson')
-  await oenAccountPage.selectCurrency('Dollar');
-  await oenAccountPage.clickProcess();
-  await oenAccountPage.reload();
-  await oenAccountPage.clickOpenAcc();
+  await openAccountPage.selectCustomer(fullName)
+  await openAccountPage.selectCurrency('Dollar');
+  await openAccountPage.clickProcess();
+  await openAccountPage.reload();
+  await openAccountPage.clickOpenAcc();
   await customersListPage.AssertCustomer();
 
 });

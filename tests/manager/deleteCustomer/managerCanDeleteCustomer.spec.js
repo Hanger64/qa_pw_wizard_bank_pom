@@ -23,6 +23,7 @@ test.beforeEach(async ({ page }) => {
   await accountPage.fillLName(lastName);
   await accountPage.fillPostCode(postCode);
   await accountPage.AddCustomer();
+  await accountPage.reload();
 });
 
 test('Assert manager can delete customer', async ({ page }) => {
