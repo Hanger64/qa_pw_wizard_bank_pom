@@ -5,7 +5,7 @@ export class CustomersListPage {
     this.page = page;
   }
 
-  async AssertCustomer(fname,lname,code) {
+  async AssertCustomerNameAndCode(fname,lname,code) {
     await expect(this.page.getByRole('row').last().getByRole('cell').nth(0)).toContainText(fname);
     await expect(this.page.getByRole('row').last().getByRole('cell').nth(1)).toContainText(lname);
     await expect(this.page.getByRole('row').last().getByRole('cell').nth(2)).toContainText(code);
@@ -16,7 +16,7 @@ export class CustomersListPage {
     await expect(this.page.getByRole('row').last().getByRole('cell').nth(3)).not.toHaveText('');
   }
 
-  async AssertSCustomer(str) {
+  async AssertCustomerVisible(str) {
     await expect(this.page.getByRole('row').getByText(str)).toBeVisible();
   }
 
@@ -29,7 +29,7 @@ export class CustomersListPage {
   }
 
   async deleteLastCustomer(){
-    const Customer = this.page.getByRole('row').last().getByRole('cell').nth(0).innerText();
+    const Customer = await this.page.getByRole('row').last().getByRole('cell').nth(0).innerText();
     await this.page.getByRole('row').last().getByRole('button', { name: 'Delete' }).click();
     return Customer;
   }

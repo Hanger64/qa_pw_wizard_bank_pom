@@ -41,7 +41,7 @@ test('Assert manager can search customer by First Name', async ({ page }) => {
   const customersListPage = new CustomersListPage(page);
   await customersListPage.open();
   await customersListPage.search(firstName);
-  await customersListPage.AssertSCustomer(firstName);
+  await customersListPage.AssertCustomerVisible(firstName);
   await customersListPage.allExeptCustomerHidden(firstName);
 
 });

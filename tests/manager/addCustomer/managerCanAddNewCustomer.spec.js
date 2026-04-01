@@ -43,5 +43,5 @@ test('Assert manager can add new customer', async ({ page }) => {
   await accountPage.AddCustomer();
   await accountPage.reload();
   await accountPage.clickCustomers();
-  await customersListPage.AssertCustomer(firstName,lastName,postCode);
+  await customersListPage.AssertCustomerNameAndCode(firstName,lastName,postCode);
 });

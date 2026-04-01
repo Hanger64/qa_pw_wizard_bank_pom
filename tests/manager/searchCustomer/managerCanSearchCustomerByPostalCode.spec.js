@@ -40,6 +40,6 @@ test('Assert manager can search customer by Postal Code', async ({ page }) => {
   const customersListPage = new CustomersListPage(page);
   await customersListPage.open();
   await customersListPage.search(postalCode);
-  await customersListPage.AssertSCustomer(postalCode);
+  await customersListPage.AssertCustomerVisible(postalCode);
   await customersListPage.allExeptCustomerHidden(postalCode);
 });
