@@ -21,7 +21,7 @@ export class CustomersListPage {
   }
 
   async allExeptCustomerHidden(str) {
-    await expect(this.page.getByRole('row').nth(2)).toBeHidden();
+    await expect(this.page.locator('tbody tr')).toHaveCount(1);
   }
 
   async AssertCustomerHidden(Customer) {
